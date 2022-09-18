@@ -3,6 +3,7 @@
 describe ('Авторизация' , () => {
     before (() => {
         cy.visit('https://www.beaxy.com/').viewport(1199,900);  /* кнопка login появляется в разрешении от 1199 */
+        cy.get('[class="modal-cookie-continue"]').click();
     });
     it('Login', () => {
         cy.wait(5000); /* при неявном ожидании в строке клика на кнопку login тест выдавал ошибку, поэтому здесь и далее использовала явное (у меня сейчас общ. wifi в поездке, стабильность и скорость под вопросом) */
@@ -43,8 +44,8 @@ describe ('Blog' , () => {
     });
     it('Первый пост', () => {
         cy.wait(8000); 
-        cy.get('button[class="show_all_pagi"]').click();
-        cy.xpath('//div[@class="all_pagi active"]//a[@class="page-numbers"][last()]', {timeout : 8000}).click();
+        cy.get('button[class="show_all_pagi"]').click();   
+        cy.xpath('//div[@class="all_pagi active"]//a[@class="page-numbers"][last()]', {timeout : 8000}).click(); /* первый пост на последней странице */
         cy.xpath('//div[@class="blog-item"][last()]//img').should('exist').should('be.visible'); 
         cy.xpath('(//a[@class= "item-body__title"])[last()]').should('exist').should('be.visible');
     });
