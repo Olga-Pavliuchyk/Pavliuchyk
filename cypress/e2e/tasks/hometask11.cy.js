@@ -16,6 +16,7 @@ describe ('Authorization' , () => {
       }); 
 });
 
+
 // Напишите тест на форму на отправку комментария
 // https://yevheniiahlovatska.editorx.io/web-practice/post/what-to-wear-to-a-blacktie-event
 
@@ -44,6 +45,7 @@ describe ('Добавление комментария' , () => {
     cy.contains('[data-hook="submit-button"]', 'Delete').click();
   });
 });
+
 
 describe ('Добавление комментария' , () => {
  
