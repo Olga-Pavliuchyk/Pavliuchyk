@@ -3,6 +3,33 @@
 // Дождитесь когда появится боковое меню корзины
 // Проверьте что товар добавлен и соответствует выбранному
 
+
+/*1) Так да не работает, потому что есть нюанс с iframe у cypress не так просто
+взять элемент если он нахрдится в iframe(покажем вариант)
+
+Вот можешь опираться на этот пример, посомтри: объясним что к чему
+ it('AddCard', () => {
+        cy.viewport(1600,900);
+        cy.visit('https://yevheniiahlovatska.editorx.io/web-practice/product-page/croc-clutch');
+        cy.wait(6000);
+        //Добавьте товар через кнопку add to card
+        cy.get('[data-hook="add-to-cart"]').wait(2000).click();
+
+        //Получить iframe
+        cy.get('iframe')
+        .then(($iframe) => {
+          const $body = $iframe.contents().find('body');
+          //Проверить что миникарт есть
+          const miniCart = cy.wrap($body).find('.minicart');
+          expect(miniCart).to.exist;
+          //Взять cart-widget-name и его текст проверить что товар называется корректно
+          cy.wrap($body).find('[data-hook="cart-widget-name"]').then((el) => {
+            expect(el.text()).to.be.equal(' Croc Clutch ');
+          })
+        })
+      });
+
+*/
 describe ('Add to cart' , () => {   
     it('', () => { 
         cy.visit('https://yevheniiahlovatska.editorx.io/web-practice/product-page/croc-clutch');
@@ -19,6 +46,8 @@ describe ('Add to cart' , () => {
         }); 
   });
 
+
+
 // 2) Напишите тест на страницу мультиплекс
 // https://friends.multiplex.ua/login
 // Перейдите на форму авторизации
@@ -26,6 +55,12 @@ describe ('Add to cart' , () => {
 // facebook
 // google
 // appleid
+
+/*Молодец!
+1) по последнему тесту у cypress имеет ограничение по навигации кросс линок,
+там нужно попробовать в конфигурацию добавить experiment. in cypress.config
+experimentalSessionAndOrigin: true,
+*/
 
 describe ('Multiplex' , () => {  
     beforeEach (() => {
