@@ -1,4 +1,16 @@
 // Напишите тест на авторизацию https://yevheniiahlovatska.editorx.io/web-practice/
+/*Comments
+0) Тут можно добавить ожидание - 
+cy.get('[aria-label~="account"]', { timeout: 6000 })
+      .should("exist")
+      .should("be.visible");
+1) [aria-label~="account"] div. можно было не указывать div он тебе и так найдет текст
+
+cy.get('[aria-label~="account"]')
+      .invoke("text")
+      .should("eq", " fortestonly");
+*/
+
 
 describe ('Authorization' , () => {   
   it('', () => { 
@@ -19,6 +31,14 @@ describe ('Authorization' , () => {
 
 // Напишите тест на форму на отправку комментария
 // https://yevheniiahlovatska.editorx.io/web-practice/post/what-to-wear-to-a-blacktie-event
+/* Comments:
+ 1) поменяй ссылку и тест начнет работать и проходить - https://yevheniiahlovatska.editorx.io/web-practice/post/manage-your-blog-from-your-live-site
+ 2) Это можно вынести выше перед describe 
+  Cypress.on('uncaught:exception', (err) => { //ошибка Error: ResizeObserver loop limit exceeded
+    return false;
+     });
+ 3) Вообще молодец! Еще бы эти ожидания вынести в конфиг - cy.wait(5000);
+*/
 
 describe ('Добавление комментария' , () => {
    it('Авторизация сразу+удаление', () => {
@@ -56,6 +76,8 @@ describe ('Добавление комментария' , () => {
     cy.get('button[data-hook="comment-box-placeholder"]', {timeout : 10000}).eq(0).click();
     Cypress.on('uncaught:exception', (err) => {  
       return false;
+      
+      
     });
     cy.get('[aria-describedby="placeholder-editor"]').type('something');
     cy.contains('Publish').click();
