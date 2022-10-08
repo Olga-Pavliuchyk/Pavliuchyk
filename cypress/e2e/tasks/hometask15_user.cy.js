@@ -6,14 +6,14 @@ describe('Api', () =>{
     const genEmail = faker.internet.email();
     const genPass = faker.internet.password();
     const genPhone = faker.internet.phone;
-    const userId = '98';
+    const userId = faker.datatype.number(100);
       
     it('Create with Array+List', () => {
         cy.request({
             method: 'POST',        /* POST /user/createWithArray */
             url:  `${baseURL}/createWithArray`,
             body: [{
-                id: 55,
+                id: userId,
                 username: "testName1",
                 firstName: "firstTestName1",
                 lastName: "lastTestName1",
@@ -23,7 +23,7 @@ describe('Api', () =>{
                 userStatus: 0
             },
             {
-                id: 56,
+                id: userId,
                 username: "testName2",
                 firstName: "firstTestName2",
                 lastName: "lastTestName2",
@@ -34,12 +34,13 @@ describe('Api', () =>{
             }]
         }).then((response) =>{
             expect(response.status).to.eq(200);
+            expect(response.body.message).to.eq('ok');
         })
         cy.request({
             method: 'POST',    /* POST /user/createWithList */
             url:  `${baseURL}/createWithList`,
             body: [{
-                id: 57,
+                id: userId,
                 username: "testName3",
                 firstName: "firstTestName3",
                 lastName: "lastTestName3",
@@ -49,7 +50,7 @@ describe('Api', () =>{
                 userStatus: 0
             },
             {
-                id: 58,
+                id: userId,
                 username: "testName4",
                 firstName: "firstTestName4",
                 lastName: "lastTestName4",
@@ -60,6 +61,7 @@ describe('Api', () =>{
             }]
         }).then((response) =>{
             expect(response.status).to.eq(200);
+            expect(response.body.message).to.eq('ok');
         })
     })
 
@@ -113,19 +115,16 @@ describe('Api', () =>{
                         expect(response.status).to.eq(200);
                         cy.request({
                             method: 'DELETE',  /* DELETE /user/{username} */
-                            url: `${baseURL}/${usName}`
+                            url: `${baseURL}/${usName}`,
+                            failOnStatusCode: false
                         }).then((response) =>{
-                            expect(response.status).to.eq(200);
+                            expect(response.status).to.eq(404);
+                            expect(response.body).to.eq(''); 
                     })                                 
                 })
-
-
-
-
             })                    
         })
     })                    
-    
     })
     
     it('Create+Login+Logout', () =>{
