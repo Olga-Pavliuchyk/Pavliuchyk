@@ -1,3 +1,40 @@
+/*
+Comments:
+1.Надо выносить body в отдельную переменнную (иногда бывает даже в отдельный файл и обращаться как к константе)
+body: [{
+                id: userId,
+                username: "testName1",
+                firstName: "firstTestName1",
+                lastName: "lastTestName1",
+                email: genEmail,
+                password: genPass,
+                phone: genPhone,
+                userStatus: 0
+            },
+            {
+                id: userId,
+                username: "testName2",
+                firstName: "firstTestName2",
+                lastName: "lastTestName2",
+                email: genEmail,
+                password: genPass,
+                phone: genPhone,
+                userStatus: 0
+            }]
+
+2. Это можно через фейкер тоже
+
+                username: "userName01",
+                firstName: "firstTestName01",
+                lastName: "lastTestName01",
+                
+                
+3. `${baseURL}/login?username=${usName}&password=%22${usPass}%22`, - %22 это символ значит кавычку, его не надо добавлять, браузер сам добавит.      
+
+4.   failOnStatusCode: false. - подругому тут никак, тоже посидела попробовала. 
+*/
+
+
 ///<reference types>="Cypress"/>
 import { faker } from '@faker-js/faker'
 
