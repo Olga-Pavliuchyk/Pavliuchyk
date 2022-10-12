@@ -1,3 +1,17 @@
+
+/*Comments:
+1. Молодец!
+2. Я бы еще вынесла  body в переменную, чтобы легче читать реквест
+body: {
+        id: 21,
+        petId: 21,
+        quantity: 1,
+        shipDate: "2022-10-20T22:22:58.030Z",
+        status: "placed",
+        complete: true
+        }
+*/
+
 describe('Api', () =>{
   const baseURL = 'https://petstore.swagger.io/v2/store';
 
