@@ -11,6 +11,8 @@
     "@4tw/cypress-drag-drop": "^2.2.1",
     "@faker-js/faker": "^7.5.0",
     "cypress": "^10.8.0",
+    "cypress-image-snapshot": "^4.0.1",
+    "cypress-localstorage-commands": "^2.2.1",
     "cypress-xpath": "^2.0.1"
   },
   "description": ""
