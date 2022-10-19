@@ -1,5 +1,6 @@
 ///<reference types = "Cypress"/>
 
+
 describe('Test', () =>{
     before(() =>{
         cy.visit('http://autopract.com');

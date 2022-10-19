@@ -28,6 +28,7 @@ Cypress.Commands.add('clickOnElement', (elementLocator) =>{
     cy.get(`${elementLocator}`, {timeout: 2000}).click();
 })
 
+
 Cypress.Commands.add('findByLinkText', (text) =>{
    //cy.xpath(`//a[contains(@href, '${text}')]`) 
    cy.xpath(`//a[contains(@href, '${text}')]`)
