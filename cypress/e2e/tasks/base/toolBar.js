@@ -1,3 +1,29 @@
+/*
+Отлично!
+Что еще хотелось бы добавить!
+1) Смотри, есть метды которые повторяют действие отличие только namePage и двумя локаторами, я бы его вынесла и создала один метод с трема параметрами
+и потом бы вызывала его внутри каждого где нужно
+
+openPageOnSectionProducts(namePage) {
+        cy.get(selectorsOfToolBar.buttonMenuProducts).click();
+        cy.get(selectorsOfToolBar.subMenuProducts).invoke('show');
+        this.pageInSectionProducts(namePage).click();
+    }
+    
+    Пример реализации:
+    openPage(buttonMenuLocator, subMenuLocator, namePage) {
+        cy.get(buttonMenuLocator).click();
+        cy.get(subMenuLocator).invoke('show');
+        this.pageInSectionProducts(namePage).click();
+    }
+    
+    пример использования:
+    openPageOnSectionProducts(namePage) {
+    this.openPage(selectorsOfToolBar.buttonMenuProducts, selectorsOfToolBar.subMenuProducts, namePage);
+    }
+
+*/
+
 export const selectorsOfToolBar = {
     buttonMenuHome: '#mainnav > ul > li:nth-child(2)',
     subMenuHome: '#mainnav > ul > li:nth-child(2) > ul',
