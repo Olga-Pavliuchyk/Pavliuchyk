@@ -15,5 +15,8 @@
     "cypress-localstorage-commands": "^2.2.1",
     "cypress-xpath": "^2.0.1"
   },
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "cypress-real-events": "^1.7.2"
+  }
 }
