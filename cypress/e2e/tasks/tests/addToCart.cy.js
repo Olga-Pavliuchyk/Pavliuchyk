@@ -15,6 +15,11 @@ describe('addToCart', () => {
     it('open', () => {
         toolBar.openPageOnSectionProducts('three olumn'); 
         addToCart.adding();
-        addToCart.checking().should('be.equal', 'Trim Dress');   
+        cy.get(addToCart.selectors.prodNameInCart).invoke(text).should('be.equal', 'Trim Dress');   
     });
+
+
+
+
+
   });

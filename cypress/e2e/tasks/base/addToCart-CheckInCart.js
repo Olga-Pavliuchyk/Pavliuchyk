@@ -1,12 +1,18 @@
-export const selectors = {
-    formAddToCart: '[class~="product-form-box"]',
-    addToCartS: '.product-buttons a:first-child',
-    allCart: '[class*="table-responsive-xs"] ',
-    prodNameInCart: '[class*="table-responsive-xs"]  td:nth-child(2) > a'
-
-}
+// export const selectors = {
+//     formAddToCart: '[class~="product-form-box"]',
+//     addToCartS: '.product-buttons a:first-child',
+//     allCart: '[class*="table-responsive-xs"] ',
+//     prodNameInCart: '[class*="table-responsive-xs"]  td:nth-child(2) > a'
+// }
 
 class addToCart {  
+
+    selectors = {
+        formAddToCart: '[class~="product-form-box"]',
+        addToCartS: '.product-buttons a:first-child',
+        allCart: '[class*="table-responsive-xs"] ',
+        prodNameInCart: '[class*="table-responsive-xs"]  td:nth-child(2) > a'
+    }
 
     adding () {
         cy.get(selectors.addToCartS).click();

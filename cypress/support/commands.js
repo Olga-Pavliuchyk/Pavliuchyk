@@ -32,3 +32,13 @@ Cypress.Commands.add('clickOnElement', (elementLocator) =>{
 Cypress.Commands.add('findByLinkText', (text) =>{
    cy.xpath(`//a[contains(@href, '${text}')]`)
 })
+
+Cypress.Commands.add('getText', (selector) => {  
+    let productName;
+    cy.get(selector).eq(0)
+    .then(($element) => {
+      productName = $element.text()    
+  }).then(() => {
+    cy.wrap(productName)
+  })
+});
