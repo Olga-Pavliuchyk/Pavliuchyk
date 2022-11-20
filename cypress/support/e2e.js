@@ -19,6 +19,7 @@ import '@4tw/cypress-drag-drop';
 import 'cypress-localstorage-commands';
 import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 addMatchImageSnapshotCommand();
+import "cypress-real-events";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

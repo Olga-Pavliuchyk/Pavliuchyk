@@ -18,7 +18,9 @@ export default {
     },
     catalog_item_selectors:  {
         productPrice: '.simple-slider-list__price .price_item',
-        itemProduct: '[class="simple-slider-list"]>li>div:nth-child(2) div'
+        itemProduct: '[class="simple-slider-list"]>li>div:nth-child(2) div',
+        quantityOfFeedback: '[rel="nofollow"]',
+        prodTitle: '.catalog-products .simple-slider-list__name'
     
       }
     }

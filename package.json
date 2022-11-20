@@ -17,6 +17,6 @@
   },
   "description": "",
   "dependencies": {
-    "cypress-real-events": "^1.7.2"
+    "cypress-real-events": "^1.7.4"
   }
 }

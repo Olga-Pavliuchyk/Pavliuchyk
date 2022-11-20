@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('clickOnElement', (elementLocator) =>{
-    cy.get(`${elementLocator}`, {timeout: 2000}).click();
+    cy.get(`${elementLocator}`, {timeout: 4000}).click();
 })
 
 
@@ -42,3 +42,24 @@ Cypress.Commands.add('getText', (selector) => {
     cy.wrap(productName)
   })
 });
+
+Cypress.Commands.add('getQuantityOfFeedbacks', (sel, nmb) =>{
+  let quantOfFd1;
+  cy.get(sel).eq(nmb)
+  .then(($element) => {
+    quantOfFd1 = parseFloat($element.text())    
+}).then(() => {
+  cy.wrap(quantOfFd1);
+  cy.log(quantOfFd1);
+  let quantOfFd2;
+  cy.get(sel).eq(nmb+1)
+  .then(($element) => {
+    quantOfFd2 = parseFloat($element.text())    
+}).then(() => {
+  cy.wrap(quantOfFd2);
+  cy.log(quantOfFd2);
+  quantOfFd2 > quantOfFd1 ? cy.log('Количество отзывов у второго товара больше, чем у первого') : cy.log('Количество отзывов у первого товара больше, чем у второго');
+})
+})
+
+})
