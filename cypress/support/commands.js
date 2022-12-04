@@ -63,3 +63,33 @@ Cypress.Commands.add('getQuantityOfFeedbacks', (sel, nmb) =>{
 })
 
 })
+
+Cypress.Commands.add('getCommentsCount', (selector, elementIndex) => {  
+  let commentCount;
+  cy.get(selector).eq(elementIndex).should('be.visible').invoke('text')
+  .then((result) => {
+      commentCount = parseInt(result);
+}).then(() => {
+  cy.wrap(commentCount)
+})
+});
+
+Cypress.Commands.add('getNumber', (selector, elementIndex) => {  
+  let price;
+  cy.get(selector).eq(elementIndex).should('be.visible').invoke('text')
+  .then((result) => {
+      price = parseInt(result);
+}).then(() => {
+  cy.wrap(price)
+})
+});
+
+Cypress.Commands.add('getPrice', (selector, elementIndex) => {  
+  let price;
+  cy.get(selector).eq(elementIndex)
+  .then((result) => {
+    price = Number(result.text());
+}).then(() => {
+  cy.wrap(price)
+})
+});

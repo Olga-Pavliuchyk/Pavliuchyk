@@ -12,8 +12,8 @@ module.exports = defineConfig({
         addMatchImageSnapshotPlugin(on, config);
       // implement node event listeners here
     },
-    // excludeSpecPattern : ['**cypress/e2e/2-advanced-examples', '**cypress/e2e/1-getting-started'],
-    // baseUrl : 'https://www.beaxy.com',
+    excludeSpecPattern : ['**cypress/e2e/2-advanced-examples', '**cypress/e2e/1-getting-started', '**cypress/e2e/tasks' ],
+    baseUrl : 'https://magento.softwaretestingboard.com/',
     // defaultCommandTimeout: 4000,
     // retries: {openMode: 1},
     // redirectionLimit: 20,
